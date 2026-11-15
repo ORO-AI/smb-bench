@@ -20,6 +20,7 @@ SMB Bench measures whether an agent learns from the delayed consequences of its 
 | | |
 |---|---|
 | Report and leaderboard | https://oroagents.com/benchmarks/smb-bench |
+| Every run on its own page: profit by day, orders and the model's notes | https://oroagents.com/smb-bench/runs |
 | Every scored run and its trace (CC BY 4.0) | https://huggingface.co/datasets/oro-agents/smb-bench |
 | Grader, to regrade any run (access on request) | https://huggingface.co/datasets/oro-agents/smb-bench-grader |
 | Harbor Hub listing | https://hub.harborframework.com/datasets/oro-agents/smb-bench |

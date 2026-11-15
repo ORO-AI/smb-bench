@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use SMB Bench, please cite it as below."
+title: "SMB Bench: measuring AI's ability to learn from delayed consequences"
+type: dataset
+authors:
+  - family-names: Bansal
+    given-names: Shardul
+  - family-names: Schilbe
+    given-names: Seth
+  - family-names: Barnes
+    given-names: Jarrod
+  - name: ORO AI
+version: smb-bench-v1
+date-released: "2026-11-06"
+doi: 10.57967/hf/11641
+url: "https://oroagents.com/benchmarks/smb-bench"
+repository: "https://huggingface.co/datasets/oro-agents/smb-bench"
+repository-code: "https://github.com/ORO-AI/smb-bench"
+license: CC-BY-4.0
+keywords:
+  - benchmark
+  - AI agents
+  - agent evaluation
+  - simulation

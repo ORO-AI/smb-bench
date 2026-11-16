@@ -1,0 +1,7 @@
+# Fetched from the dataset or written by the scripts
+/data/
+/plots/
+/traces/
+/dataset-card.md
+.venv/
+__pycache__/

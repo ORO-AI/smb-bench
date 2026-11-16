@@ -1,0 +1,31 @@
+name: Reproduce the published numbers
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: "17 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -r requirements.txt
+      - name: Fetch the pinned dataset revision and compare the copied files with it
+        run: python fetch_data.py
+      - name: Recompute every number on the dataset card and compare
+        run: python -I -B recompute.py --check dataset-card.md
+      - name: Draw the chart
+        run: python -I -B plot.py
+      - name: Read one published run
+        run: python examples/read_trace.py

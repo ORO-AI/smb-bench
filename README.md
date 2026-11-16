@@ -60,7 +60,7 @@ To read a single run, `python examples/read_trace.py` downloads one run's trace 
 | `fetch_data.py` | Downloads `data/runs.parquet` and the dataset card, and confirms the four files above match the dataset |
 | `examples/read_trace.py` | Reads one published run from its trace |
 
-The first four files are byte-for-byte copies from the dataset [`oro-agents/smb-bench`](https://huggingface.co/datasets/oro-agents/smb-bench/tree/e6635ff9514e11383ad0e4240712ad8aae20ce0b) at revision `e6635ff9514e11383ad0e4240712ad8aae20ce0b`, where they are published under CC BY 4.0. The dataset is their source, and `fetch_data.py` fails if a copy here differs from it. The simulator and the grader are not in this repository: ORO hosts the environment, and a run with your own agent goes through it as described below.
+The first four files are byte-for-byte copies from the dataset [`oro-agents/smb-bench`](https://huggingface.co/datasets/oro-agents/smb-bench/tree/d7c5b3f4d7940ef4be600b230ab29af3682f3fdf) at revision `d7c5b3f4d7940ef4be600b230ab29af3682f3fdf`, where they are published under CC BY 4.0. The dataset is their source, and `fetch_data.py` fails if a copy here differs from it. The simulator and the grader are not in this repository: ORO hosts the environment, and a run with your own agent goes through it as described below.
 
 ## Run it on your own agent
 
@@ -83,6 +83,10 @@ Runs need a grant: write to team@oroagents.com and we'll send a token, typically
 ```
 
 The task worlds use FreshRetailNet-50K; please also cite it, as described in the [dataset card](https://huggingface.co/datasets/oro-agents/smb-bench#citation).
+
+## Licence
+
+Everything in this repository is under [CC BY 4.0](LICENSE), the dataset's licence.
 
 ## ORO AI
 

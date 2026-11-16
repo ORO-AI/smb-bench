@@ -13,7 +13,7 @@ import urllib.request
 from pathlib import Path
 
 DATASET = "oro-agents/smb-bench"
-REVISION = "e6635ff9514e11383ad0e4240712ad8aae20ce0b"
+REVISION = "d7c5b3f4d7940ef4be600b230ab29af3682f3fdf"
 HERE = Path(__file__).resolve().parent
 FETCHED = {"data/runs.parquet": "data/runs.parquet", "README.md": "dataset-card.md"}  # dataset path -> local path
 COPIED = ["recompute.py", "plot.py", "requirements.txt", "task/buyer-prompt-v11.json"]

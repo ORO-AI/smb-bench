@@ -18,7 +18,7 @@ HERE = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(HERE))
 from fetch_data import get
 
-slug, task, repeat = (sys.argv[1:] + ["claude-opus-5-5", "smb-bench-public-1", "1"][len(sys.argv) - 1 :])[:3]
+slug, task, repeat = sys.argv[1:4] or ["claude-opus-5-5", "smb-bench-public-1", "1"]
 trial = f"traces/runs/{slug.replace('.', '-')}/{task}__r{repeat}"  # the dataset's folders spell dots as hyphens
 files = {}
 for name in ("agent/trajectory.json", "verifier/reward.json"):
@@ -34,18 +34,14 @@ def usd(cents):
 
 
 print(f"{slug}, {task}, run {repeat}")
-print(
-    f"{'day':>3} {'tool calls':>10} {'orders':>6} {'ordered':>9} {'cash next morning':>17} {'stock next morning, kg':>22}"
-)
+row = "{:>3} {:>10} {:>6} {:>9} {:>17} {:>22}".format
+print(row("day", "tool calls", "orders", "ordered", "cash next morning", "stock next morning, kg"))
 day, calls, orders, ordered = 0, 0, 0, 0
 for step in files["agent/trajectory.json"]["steps"]:
     # A provider can reuse tool-call ids across steps, so a call is joined to its result within its own step.
     results = {r["source_call_id"]: r["content"] for r in (step.get("observation") or {}).get("results", [])}
     for call in step.get("tool_calls") or []:
-        try:
-            result = json.loads(results.get(call["tool_call_id"]) or "{}")
-        except ValueError:
-            result = {}
+        result = json.loads(results[call["tool_call_id"]])
         name = call["function_name"]
         calls += name != "advance_day"  # advance_day does not count against the daily limit
         if name == "place_purchase_order" and result.get("status") == "accepted":
@@ -55,7 +51,7 @@ for step in files["agent/trajectory.json"]["steps"]:
             status = result.get("status")  # absent after the last day
             cash = usd(status["cash_cents"]) if status else ""
             stock = f"{status['on_hand_grams'] / 1000:,.0f}" if status else ""
-            print(f"{day:>3} {calls:>10} {orders:>6} {usd(ordered):>9} {cash:>17} {stock:>22}")
+            print(row(day, calls, orders, usd(ordered), cash, stock))
             day, calls, orders, ordered = day + 1, 0, 0, 0
 
 grade = files["verifier/reward.json"]

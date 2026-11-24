@@ -73,7 +73,18 @@ Runs need a grant: write to team@oroagents.com and we'll send a token, typically
 
 ## Citation
 
+Please cite the paper, and the dataset if you use the runs:
+
 ```bibtex
+@misc{bansal2026delayed,
+  title         = {Measuring and Teaching Language Model Agents to Act on Delayed Consequences},
+  author        = {Bansal, Shardul and Schilbe, Seth and Barnes, Jarrod},
+  year          = {2026},
+  eprint        = {2611.28158},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.LG}
+}
+
 @misc{oro2026smbbench,
   title        = {SMB Bench: measuring AI's ability to learn from delayed consequences},
   author       = {Bansal, Shardul and Schilbe, Seth and Barnes, Jarrod and {ORO AI}},

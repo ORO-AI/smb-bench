@@ -22,3 +22,19 @@ keywords:
   - AI agents
   - agent evaluation
   - simulation
+preferred-citation:
+  type: article
+  title: "Measuring and Teaching Language Model Agents to Act on Delayed Consequences"
+  authors:
+    - family-names: Bansal
+      given-names: Shardul
+    - family-names: Schilbe
+      given-names: Seth
+    - family-names: Barnes
+      given-names: Jarrod
+  year: 2026
+  journal: arXiv preprint
+  url: "https://arxiv.org/abs/2611.28158"
+  identifiers:
+    - type: other
+      value: "arXiv:2611.28158"
